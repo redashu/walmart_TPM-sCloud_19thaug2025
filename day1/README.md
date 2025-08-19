@@ -24,3 +24,20 @@
 ### understanding use case of webapp in a single Region 
 
 <img src="app6.png">
+
+### Cloud deployment methods 
+
+### Private cloud deployment options 
+
+<img src="app7.png">
+
+
+### Decision making in selection of on-prem, hybrid and cloud 
+
+<img src="app8.png">
+
+
+## pricing model of cloud 
+
+<img src="app9.png">
+
