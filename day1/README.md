@@ -41,3 +41,10 @@
 
 <img src="app9.png">
 
+### GCP platform basic 
+
+<img src="app10.png">
+
+## Exercise for tomorrow before session 
+
+<img src="app11.png">
