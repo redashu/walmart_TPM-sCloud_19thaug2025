@@ -33,3 +33,7 @@
 
 
 <img src="app7.png">
+
+### System Desing  LB vs APIgateway 
+
+<img src="app8.png">
