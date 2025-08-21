@@ -1,48 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>GCS File Upload & View</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GCS File Manager</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
-        <h1>Upload & View Files (GCS)</h1>
+  <div class="container">
+    <h1>📂 Google Cloud Storage File Manager</h1>
 
-        <!-- Upload Form -->
-        <form method="POST" enctype="multipart/form-data" action="/upload" class="upload-form">
-            <label class="custom-file-upload">
-                <input type="file" name="file" id="fileInput">
-                <span id="fileName">Choose a file...</span>
-            </label>
-            <button type="submit">Upload</button>
-        </form>
+    <!-- Upload Form -->
+    <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data" class="upload-form">
+      <label for="file-upload" class="custom-file-upload">
+        Choose File
+      </label>
+      <input id="file-upload" type="file" name="file" onchange="updateFileName()">
+      <span id="file-name">No file chosen</span>
+      <button type="submit">Upload</button>
+    </form>
 
-        <!-- File List -->
-        <h2>Uploaded Files</h2>
-        <ul class="file-list">
-            {% for file in files %}
-            <li>
-                <a href="{{ url_for('download_file', filename=file) }}" target="_blank">{{ file }}</a>
-            </li>
-            {% else %}
-            <li>No files found.</li>
-            {% endfor %}
-        </ul>
-    </div>
+    <!-- File List -->
+    <h2>Available Files</h2>
+    <ul class="file-list">
+      {% for file in files %}
+        <li>
+          <span>📄 {{ file }}</span>
+          <a href="{{ url_for('view_file', filename=file) }}" target="_blank">View</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 
-    <!-- Show filename when user selects -->
-    <script>
-        const fileInput = document.getElementById("fileInput");
-        const fileName = document.getElementById("fileName");
-
-        fileInput.addEventListener("change", function() {
-            if (this.files && this.files.length > 0) {
-                fileName.textContent = this.files[0].name;
-            } else {
-                fileName.textContent = "Choose a file...";
-            }
-        });
-    </script>
+  <script>
+    function updateFileName() {
+      const input = document.getElementById("file-upload");
+      const fileName = input.files.length > 0 ? input.files[0].name : "No file chosen";
+      document.getElementById("file-name").textContent = fileName;
+    }
+  </script>
 </body>
 </html>
