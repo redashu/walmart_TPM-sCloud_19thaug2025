@@ -2,38 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborative Docs Demo</title>
+    <title>GCS File Upload & View</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <div class="container">
-    <h1>📄 Collaborative Document Storage</h1>
+    <div class="container">
+        <h1>Upload & View Files (GCS)</h1>
 
-    <!-- Upload Form -->
-    <div class="upload-section">
-      <form action="/upload" method="POST" enctype="multipart/form-data">
-        <label for="file-upload" class="upload-label">Choose File</label>
-        <input id="file-upload" type="file" name="file" required>
-        <br>
-        <button type="submit">Upload</button>
-      </form>
+        <!-- Upload Form -->
+        <form method="POST" enctype="multipart/form-data" action="/upload" class="upload-form">
+            <label class="custom-file-upload">
+                <input type="file" name="file" id="fileInput">
+                <span id="fileName">Choose a file...</span>
+            </label>
+            <button type="submit">Upload</button>
+        </form>
+
+        <!-- File List -->
+        <h2>Uploaded Files</h2>
+        <ul class="file-list">
+            {% for file in files %}
+            <li>
+                <a href="{{ url_for('download_file', filename=file) }}" target="_blank">{{ file }}</a>
+            </li>
+            {% else %}
+            <li>No files found.</li>
+            {% endfor %}
+        </ul>
     </div>
 
-    <!-- File List -->
-    <div class="file-list">
-      <h2>Available Documents</h2>
-      {% if files %}
-        {% for file in files %}
-          <div class="file-card">
-            <span>{{ file }}</span>
-            <a href="{{ url_for('view_file', filename=file) }}" target="_blank">View</a>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p>No files uploaded yet.</p>
-      {% endif %}
-    </div>
-  </div>
+    <!-- Show filename when user selects -->
+    <script>
+        const fileInput = document.getElementById("fileInput");
+        const fileName = document.getElementById("fileName");
+
+        fileInput.addEventListener("change", function() {
+            if (this.files && this.files.length > 0) {
+                fileName.textContent = this.files[0].name;
+            } else {
+                fileName.textContent = "Choose a file...";
+            }
+        });
+    </script>
 </body>
 </html>
