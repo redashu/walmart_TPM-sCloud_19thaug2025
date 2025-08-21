@@ -45,6 +45,7 @@ pip install flask  google-cloud-storage
 ### use git clone to copy application code 
 
 ```
+ sudo apt install git -y  # only for debain based system 
 git clone https://github.com/redashu/walmart_TPM-sCloud_19thaug2025.git 
 
 cp  -rf  walmart_TPM-sCloud_19thaug2025/webapp/  . 
