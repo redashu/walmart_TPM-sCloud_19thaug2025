@@ -5,8 +5,8 @@ import os
 app = Flask(__name__)
 
 # GCS Config
-BUCKET_NAME = "my-docs-bucket"
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "gcs-key.json"
+BUCKET_NAME = "testpocnew1"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "storae.json"
 
 client = storage.Client()
 bucket = client.bucket(BUCKET_NAME)
