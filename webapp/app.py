@@ -19,20 +19,27 @@ def index():
     files = [blob.name for blob in blobs]
     return render_template("index.html", files=files)
 
-@app.route("/upload", methods=["POST"])
+@app.route('/upload', methods=['POST'])
 def upload_file():
-    """Upload a file to GCS"""
-    if "file" not in request.files:
-        return "No file uploaded", 400
-    
-    file = request.files["file"]
-    if file.filename == "":
-        return "No selected file", 400
-    
-    blob = bucket.blob(file.filename)
-    blob.upload_from_file(file)
+    if 'file' not in request.files:
+        return "No file part"
 
-    return redirect(url_for("index"))
+    file = request.files['file']
+    if file.filename == '':
+        return "No selected file"
+
+    # Create a GCS blob
+    blob = bucket.blob(file.filename)
+
+    # Upload with correct Content-Type
+    blob.upload_from_file(file, content_type=file.content_type)
+
+    # Optional: force browser to render inline instead of download
+    blob.content_disposition = "inline"
+    blob.patch()
+
+    return redirect('/')
+
 
 @app.route("/view/<filename>")
 def view_file(filename):
