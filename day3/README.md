@@ -35,10 +35,19 @@ source storage-app/bin/activate
 ```
 
 
-### Installing python module 
+### Installing python module in any OS you have created as VM 
 
 ```
 pip install flask  google-cloud-storage
 
 ```
+
+### use git clone to copy application code 
+
+```
+git clone https://github.com/redashu/walmart_TPM-sCloud_19thaug2025.git 
+
+cp  -rf  walmart_TPM-sCloud_19thaug2025/webapp/  . 
+```
+
 
