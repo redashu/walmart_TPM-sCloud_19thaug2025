@@ -34,3 +34,11 @@ source storage-app/bin/activate
 
 ```
 
+
+### Installing python module 
+
+```
+pip install flask  google-cloud-storage
+
+```
+
