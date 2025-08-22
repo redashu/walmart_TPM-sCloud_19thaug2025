@@ -23,10 +23,16 @@ os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "storae.json"  # service account 
 storage_client = storage.Client()
 bucket = storage_client.bucket(GCS_BUCKET)
 
+
 @app.route("/")
 def home():
+    if "username" not in session:   # 👈 Protect homepage
+        return redirect(url_for("login"))
+
     files = [blob.name for blob in bucket.list_blobs()]
     return render_template("index.html", files=files)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
