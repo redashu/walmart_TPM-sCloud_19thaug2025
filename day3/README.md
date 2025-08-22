@@ -51,4 +51,10 @@ git clone https://github.com/redashu/walmart_TPM-sCloud_19thaug2025.git
 cp  -rf  walmart_TPM-sCloud_19thaug2025/webapp/  . 
 ```
 
+### python flask webpp to connect with GCS using service account 
+
+<img src="acc1.png">
+
+
+
 

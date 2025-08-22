@@ -23,12 +23,16 @@
     <!-- File List -->
     <h2>Available Files</h2>
     <ul class="file-list">
-      {% for file in files %}
-        <li>
-          <span>📄 {{ file }}</span>
-          <a href="{{ url_for('view_file', filename=file) }}" target="_blank">View</a>
-        </li>
-      {% endfor %}
+      {% if files %}
+        {% for file in files %}
+          <li>
+            <span>📄 {{ file }}</span>
+            <a href="{{ url_for('view_file', filename=file) }}" target="_blank">View</a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <li>No files found in bucket.</li>
+      {% endif %}
     </ul>
   </div>
 
