@@ -1,30 +1,47 @@
 # walmart_TPM-sCloud_19thaug2025
+## Overall Revision & New Concept Introduction
 
-## Overall revision + new concept intro 
+### Cloud Details Overview
 
-### info about cloud details details 
+![Cloud Details](cl1.png)
 
-<img src="cl1.png">
+### System Design Components
 
-### info about some system design compos
+![System Design Components](cl2.png)
 
-<img src="cl2.png">
+### Introduction to Service Mesh & Products
 
-### Intro to service mesh and its products 
+![Service Mesh](cl3.png)
 
-<img src="cl3.png">
+### Three Pillars in Application & System Design
 
+![Three Pillars](cl4.png)
 
-### 3 pillors in app + system desing to be noticed
+## Understanding SLA, SLO, & SLI
 
+![SLA SLO SLI](cl5.png)
 
-<img src="cl4.png">
+## Additional Information
 
-## Understanding SLA | SLO | SLI 
+![More Info](cl6.png)
 
-<img src="cl5.png">
+---
 
-##  more info about the same 
+## Capstone Project: TPMs Design & Present a System
 
-<img src="cl6.png">
+**Assignment:**  
+Teams will design a system (example options: ridesharing backend or video streaming platform). The following aspects must be addressed:
 
+- Cost vs. performance vs. maintainability
+- Build vs. buy considerations
+- Managing dependencies
+- System and architecture diagrams
+- PRD (Product Requirement Document) outline
+
+**Tools for Reference:**
+- Whiteboard or Lucidchart for diagrams
+- GCP/Azure consoles for pricing and service comparisons
+
+**Peer Review:**
+- Each team presents their solution
+- Other teams and instructor provide structured feedback
