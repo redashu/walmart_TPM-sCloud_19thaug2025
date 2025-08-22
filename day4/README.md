@@ -14,3 +14,17 @@
 
 <img src="cl3.png">
 
+
+### 3 pillors in app + system desing to be noticed
+
+
+<img src="cl4.png">
+
+## Understanding SLA | SLO | SLI 
+
+<img src="cl5.png">
+
+##  more info about the same 
+
+<img src="cl6.png">
+
